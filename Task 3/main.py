@@ -20,10 +20,10 @@ def combine_files_data(f_name_list, f_to_write):
                     key=lambda item: item[1]['length'])
 
     with open(f_to_write, "w", encoding="utf-8") as f:
-        for f_d in f_dict:
-            name = f_d[0]
-            length = f_d[1]['length']
-            strings = "\n".join(f_d[1]['strings'])
+        for f_d, l_count in f_dict:
+            name = f_d
+            length = l_count['length']
+            strings = "\n".join(l_count['strings'])
             f.write(f"{name}\n"
                     f"{length}\n"
                     f"{strings}\n")
